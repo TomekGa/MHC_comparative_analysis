@@ -1,0 +1,58 @@
+initialize() {
+	//defineGlobal("theta",5); //defining global variable
+	defineGlobal("theta",6/10); //defining global variable
+	defineGlobal("Ne",500);
+	defineGlobal("N_loci",5);
+	defineGlobal("NFS_var",0.5);
+	//defineGlobal("MutReduction",50);
+	defineGlobal("BurnIN",20);
+	initializeMutationRate(theta/(4*Ne));
+	initializeMutationType("m1", 0.5, "f", 0.0);
+	m1.convertToSubstitution = F; //keeps track of all mutations including fixed
+	m1.mutationStackPolicy = "l"; //new mutation in the same position overwrites previous one
+	initializeGenomicElementType("g1", m1, 1.0);
+	initializeGenomicElement(g1, 0, N_loci-1);
+	initializeRecombinationRate(0);
+	//dividers = rev(c(1,c(1:(N_loci-1))*2));
+	//print(dividers);
+	//initializeMutationRate(rates = rep(theta/(4*Ne),N_loci)/dividers,ends = c(0:(N_loci-1)));
+	//initializeMutationRate(rates = theta/(4*Ne),ends = c(0:(N_loci-1)));
+}
+1 early() { sim.addSubpop("p1", 500);} //creating initial population
+
+early() {
+	if(community.tick == (Ne*BurnIN)){
+		sim.addSubpopSplit("p2", 500, p1); //splitting populations
+		//print(sim.chromosome.mutationRates);
+		//sim.chromosome.setMutationRate(rates = theta/(4*Ne*MutReduction),ends = c(0:(N_loci-1)));
+		//print(sim.chromosome.mutationRates);
+		}} 
+
+late() {
+	
+	if(community.tick == (Ne*BurnIN)){
+		sim.outputFull("output_0.txt"); } //outputs
+	
+	if(community.tick == ((Ne*BurnIN)+(0.1*Ne))){
+		sim.outputFull("output_1.txt"); }
+		
+	if(community.tick == ((Ne*BurnIN)+(Ne*0.5))){
+		sim.outputFull("output_2.txt"); }
+	
+	if(community.tick == ((Ne*BurnIN)+(Ne))){
+		sim.outputFull("output_3.txt"); }
+	
+	if(community.tick == ((Ne*BurnIN)+(4*Ne))){
+		sim.outputFull("output_4.txt");
+		sim.simulationFinished(); }
+}
+
+mutationEffect(m1,p1) { //NFS for p1 population
+	return 1 + NFS_var - (sim.mutationFrequencies(p1, mut)*NFS_var);
+}
+
+mutationEffect(m1,p2) { //NFS for p2 population
+	return 1 + NFS_var - (sim.mutationFrequencies(p2, mut)*NFS_var);
+}
+
+1000000 late() {} //this is needed, otherwise simulation makes only 2 ticks

@@ -1,0 +1,2357 @@
+
+[1] 1
+[1] "counter: 1"
+0ac 4.1e+02dfg[1] 2
+[1] "counter: 1"
+0ac 8.4e+05dfg[1] 3
+[1] "counter: 1"
+0ac 8.4e+05dfg[1] 4
+[1] "counter: 1"
+0ac 8.4e+05dfg[1] 5
+[1] "counter: 1"
+0ac 1.7e+09dfg[1] 6
+[1] "counter: 1"
+0ac 4.1e+02dfg[1] 7
+[1] "counter: 1"
+0ac 8.4e+05dfg[1] 8
+[1] "counter: 1"
+0ac 8.4e+05dfg[1] 9
+[1] "counter: 1"
+0ac 8.4e+05dfg[1] 10
+[1] "counter: 1"
+0ac 1.7e+09dfg[1] 11
+[1] "counter: 1"
+0ac 4.1e+02dfg[1] 12
+[1] "counter: 1"
+0ac 8.4e+05dfg[1] 13
+[1] "counter: 1"
+0ac 8.4e+05dfg[1] 14
+[1] "counter: 1"
+0ac 8.4e+05dfg[1] 15
+[1] "counter: 1"
+0ac 1.7e+09dfg
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.98686
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.70075
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74544
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.72064
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.56755
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.98735
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.72392
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74114
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.71672
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.52274
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.51950
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.38806
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.38621
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.31003
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.27926
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+0ac 7.0e+10dfg[1] "order 1"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.98959
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM            4   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    2000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam 5      -none- list    
+cM         4      -none- numeric 
+llFunc     1      -none- function
+mcmcParam  5      -none- list    
+mcmcRaw    0      -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.99785
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM            4   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    2000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam 5      -none- list    
+cM         4      -none- numeric 
+llFunc     1      -none- function
+mcmcParam  5      -none- list    
+mcmcRaw    0      -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.99675
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM            4   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    2000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 2"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.99423
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM            4   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    2000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam 5      -none- list    
+cM         4      -none- numeric 
+llFunc     1      -none- function
+mcmcParam  5      -none- list    
+mcmcRaw    0      -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.99102
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM            4   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    2000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam 5      -none- list    
+cM         4      -none- numeric 
+llFunc     1      -none- function
+mcmcParam  5      -none- list    
+mcmcRaw    0      -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.99217
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM            4   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    2000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 3"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.99138
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM            4   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    2000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam 5      -none- list    
+cM         4      -none- numeric 
+llFunc     1      -none- function
+mcmcParam  5      -none- list    
+mcmcRaw    0      -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.99776
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM            4   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    2000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam 5      -none- list    
+cM         4      -none- numeric 
+llFunc     1      -none- function
+mcmcParam  5      -none- list    
+mcmcRaw    0      -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.99375
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM            4   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    2000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 4"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.72762
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74123
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+0ac 2.0e+22dfg           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.70044
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 5"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.72750
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73178
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.75146
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 6"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.69528
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.72718
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.60905
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 7"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74650
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74709
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74283
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 8"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74323
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74316
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74375
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 9"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74593
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73847
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.75030
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 10"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73955
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74164
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74793
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 11"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73788
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73905
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74459
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 12"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.72975
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73336
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74649
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 13"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.52690
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.55078
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.54832
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 14"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.53113
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.54629
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.54795
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 15"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.53656
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.55480
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.55803
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 16"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.99197
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM            4   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    2000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam 5      -none- list    
+cM         4      -none- numeric 
+llFunc     1      -none- function
+mcmcParam  5      -none- list    
+mcmcRaw    0      -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.99549
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM            4   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    2000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam 5      -none- list    
+cM         4      -none- numeric 
+llFunc     1      -none- function
+mcmcParam  5      -none- list    
+mcmcRaw    0      -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.99657
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM            4   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    2000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 17"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.98745
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM            4   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    2000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam 5      -none- list    
+cM         4      -none- numeric 
+llFunc     1      -none- function
+mcmcParam  5      -none- list    
+mcmcRaw    0      -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.99682
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM            4   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    2000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam 5      -none- list    
+cM         4      -none- numeric 
+llFunc     1      -none- function
+mcmcParam  5      -none- list    
+mcmcRaw    0      -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.99554
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM            4   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    2000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 18"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.98848
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM            4   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    2000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam 5      -none- list    
+cM         4      -none- numeric 
+llFunc     1      -none- function
+mcmcParam  5      -none- list    
+mcmcRaw    0      -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.99217
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM            4   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    2000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam 5      -none- list    
+cM         4      -none- numeric 
+llFunc     1      -none- function
+mcmcParam  5      -none- list    
+mcmcRaw    0      -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.99845
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM            4   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    2000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 19"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73988
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74280
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74638
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 20"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73710
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73882
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73304
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 21"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73771
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73494
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73704
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 22"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74194
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73308
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74449
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 23"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73945
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73948
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73504
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 24"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73673
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.72930
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73940
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 25"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74440
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73022
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73749
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 26"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.75015
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74639
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73719
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 27"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74650
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.74447
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.73835
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 28"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.55305
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.55288
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.55349
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 29"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.54732
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.55557
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.54597
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 30"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.47490
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.55285
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.55678
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 31"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.38643
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.33796
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.40475
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 32"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.42676
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.37755
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.49398
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 33"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.40607
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.35703
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         16     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.26760
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           16   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    4000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 34"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.29146
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.32317
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.32665
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 35"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.28085
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.30329
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.25875
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 36"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.28663
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.18973
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.36354
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 37"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.31534
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.26885
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.34195
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 38"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.26494
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.36685
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.33530
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 39"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.29400
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.28767
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.28325
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 40"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.33570
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.25516
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.28755
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 41"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.37595
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.32667
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.30782
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 42"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.33604
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.26586
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         36     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.29751
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           36   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    6000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 43"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.20312
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           64   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    8000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         64     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.16581
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           64   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    8000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         64     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.19831
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           64   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    8000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 44"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.20601
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           64   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    8000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         64     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.27868
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           64   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    8000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         64     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.22301
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           64   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    8000   mcmc   numeric 
+[1] "Chain Complete"
+[1] "order 45"
+[1] 1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.22752
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           64   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    8000   mcmc   numeric 
+[1] 2
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         64     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.19230
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           64   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    8000   mcmc   numeric 
+[1] 3
+           Length Class  Mode    
+modelParam  5     -none- list    
+cM         64     -none- numeric 
+llFunc      1     -none- function
+mcmcParam   5     -none- list    
+mcmcRaw     0     -none- NULL    
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The Metropolis acceptance rate was 0.22924
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+           Length Class  Mode    
+modelParam    5   -none- list    
+cM           64   -none- numeric 
+llFunc        1   -none- function
+mcmcParam     5   -none- list    
+mcmcRaw    8000   mcmc   numeric 
+[1] "Chain Complete"
+[1] 16

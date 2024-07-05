@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.543">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="T. Gaczorek (tomasz.gaczorek@uj.edu.pl)">
+<meta name="dcterms.date" content="2024-05-06">
+
+<title>MHC - comparative analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="START_HERE_files/libs/clipboard/clipboard.min.js"></script>
+<script src="START_HERE_files/libs/quarto-html/quarto.js"></script>
+<script src="START_HERE_files/libs/quarto-html/popper.min.js"></script>
+<script src="START_HERE_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="START_HERE_files/libs/quarto-html/anchor.min.js"></script>
+<link href="START_HERE_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="START_HERE_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="START_HERE_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="START_HERE_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="START_HERE_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#import-packages" id="toc-import-packages" class="nav-link active" data-scroll-target="#import-packages">IMPORT PACKAGES</a></li>
+  <li><a href="#descriptive-statisctics" id="toc-descriptive-statisctics" class="nav-link" data-scroll-target="#descriptive-statisctics">DESCRIPTIVE STATISCTICS</a>
+  <ul class="collapse">
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
+  <li><a href="#analyses" id="toc-analyses" class="nav-link" data-scroll-target="#analyses">Analyses</a></li>
+  </ul></li>
+  <li><a href="#randomization-test---model" id="toc-randomization-test---model" class="nav-link" data-scroll-target="#randomization-test---model">RANDOMIZATION TEST - MODEL</a></li>
+  <li><a href="#geographic-clines" id="toc-geographic-clines" class="nav-link" data-scroll-target="#geographic-clines">GEOGRAPHIC CLINES</a>
+  <ul class="collapse">
+  <li><a href="#gather-parameters" id="toc-gather-parameters" class="nav-link" data-scroll-target="#gather-parameters">Gather parameters</a></li>
+  <li><a href="#calculate-hedges-g" id="toc-calculate-hedges-g" class="nav-link" data-scroll-target="#calculate-hedges-g">Calculate Hedges G</a></li>
+  <li><a href="#statistical-model" id="toc-statistical-model" class="nav-link" data-scroll-target="#statistical-model">Statistical model</a></li>
+  </ul></li>
+  <li><a href="#genomic-clines---model" id="toc-genomic-clines---model" class="nav-link" data-scroll-target="#genomic-clines---model">GENOMIC CLINES - MODEL</a></li>
+  <li><a href="#r-session-info" id="toc-r-session-info" class="nav-link" data-scroll-target="#r-session-info">R session info</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">MHC - comparative analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>T. Gaczorek (tomasz.gaczorek@uj.edu.pl) </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 6, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The main script used for the comparative analysis of adaptive MHC introgression in vertebrate hybrid zones (Gaczorek et al., 2024, MBE). The following analyses use data obtained from the analyses of individual hybrid zones and you can find them in seperate directories. If you wish to see how individual hybrid zones were analysed, follow Solea sp. example in the “Solea_example” directory.</p>
+<p><strong>Note that each section is independent and can be run independently.</strong></p>
+<section id="import-packages" class="level1">
+<h1>IMPORT PACKAGES</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ape)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggtree)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nlme)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="descriptive-statisctics" class="level1">
+<h1>DESCRIPTIVE STATISCTICS</h1>
+<section id="functions" class="level2">
+<h2 class="anchored" data-anchor-id="functions">Functions</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>read_and_rbind_gen <span class="ot">&lt;-</span> <span class="cf">function</span>(taxons){ <span class="co">#combine genotype tables for all taxa</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  taxs <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"./genotypes/"</span>,taxons,<span class="st">"_genotypes_bothMHC.csv"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  dts <span class="ot">&lt;-</span> <span class="fu">lapply</span>(taxs,read.csv,<span class="at">fileEncoding =</span> <span class="st">"UTF-8"</span>) <span class="sc">%&gt;%</span> <span class="fu">lapply</span>(.,select,INDIVIDUAL_ID,CLASS,ALLELE,GENOTYPE)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  dts <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(dts), <span class="cf">function</span>(x){<span class="fu">mutate</span>(dts[[x]],<span class="st">"TAXON"</span> <span class="ot">=</span> taxons[x])})</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>(<span class="fu">do.call</span>(rbind,dts))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>read_and_rbind_GI <span class="ot">&lt;-</span> <span class="cf">function</span>(taxons){ <span class="co">#combine genome-wide admixture tables for all taxa</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  taxs <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"./genetic_info/"</span>,taxons,<span class="st">"_geneticInfo.csv"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  dts <span class="ot">&lt;-</span> <span class="fu">lapply</span>(taxs,read.csv,<span class="at">fileEncoding =</span> <span class="st">"UTF-8"</span>) <span class="sc">%&gt;%</span> <span class="fu">lapply</span>(.,select,INDIVIDUAL_ID,SPECIES,CLEAR,MARKER)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  dts <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(dts), <span class="cf">function</span>(x){<span class="fu">mutate</span>(dts[[x]],<span class="st">"TAXON"</span> <span class="ot">=</span> taxons[x])})</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>(<span class="fu">do.call</span>(rbind,dts))</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>read_and_rbind_loc <span class="ot">&lt;-</span> <span class="cf">function</span>(taxons){ <span class="co">#combine locality tables for all taxa</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  taxs <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"./localities/"</span>,taxons,<span class="st">"_localities.csv"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  dts <span class="ot">&lt;-</span> <span class="fu">lapply</span>(taxs,read.csv,<span class="at">fileEncoding =</span> <span class="st">"UTF-8"</span>) <span class="sc">%&gt;%</span> <span class="fu">lapply</span>(.,select,INDIVIDUAL_ID,LOCALITY)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  dts <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(dts), <span class="cf">function</span>(x){<span class="fu">mutate</span>(dts[[x]],<span class="st">"TAXON"</span> <span class="ot">=</span> taxons[x])})</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>(<span class="fu">do.call</span>(rbind,dts))</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>quantiles_95 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  r <span class="ot">&lt;-</span> <span class="fu">quantile</span>(x, <span class="at">probs=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>))</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(r) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"ymin"</span>, <span class="st">"lower"</span>, <span class="st">"middle"</span>, <span class="st">"upper"</span>, <span class="st">"ymax"</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  r</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>allelic_richness <span class="ot">&lt;-</span> <span class="cf">function</span>(x,<span class="at">size_v =</span> <span class="dv">8</span>,<span class="at">cycles =</span> <span class="dv">1000</span>){</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>cycles){</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    inds <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">unique</span>(x<span class="sc">$</span>INDIVIDUAL_ID),size_v,<span class="at">replace =</span> F)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    out[<span class="fu">length</span>(out)<span class="sc">+</span><span class="dv">1</span>] <span class="ot">&lt;-</span> x <span class="sc">%&gt;%</span> <span class="fu">filter</span>(INDIVIDUAL_ID <span class="sc">%in%</span> inds <span class="sc">&amp;</span> GENOTYPE <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>      <span class="fu">summarise</span>(<span class="st">"Allelic_richness"</span> <span class="ot">=</span> <span class="fu">n_distinct</span>(ALLELE)) <span class="sc">%&gt;%</span> .<span class="sc">$</span>Allelic_richness</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(out)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="analyses" class="level2">
+<h2 class="anchored" data-anchor-id="analyses">Analyses</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#vector of taxa</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>taxons <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Salmo"</span>,<span class="st">"Solea"</span>,<span class="st">"Bombina"</span>,<span class="st">"Lissotriton"</span>,<span class="st">"Triturus"</span>,<span class="st">"Anguis"</span>,<span class="st">"Natrix"</span>,<span class="st">"Podarcis"</span>,<span class="st">"Emys"</span>,<span class="st">"Sphyrapicus"</span>,<span class="st">"Clethrionomys"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#files import</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>genotypes <span class="ot">&lt;-</span> <span class="fu">read_and_rbind_gen</span>(taxons) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(GENOTYPE <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"d$"</span>,INDIVIDUAL_ID)) <span class="co">#keep only present alleles and remove duplicates</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>genetic_info <span class="ot">&lt;-</span> <span class="fu">read_and_rbind_GI</span>(taxons)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>localities <span class="ot">&lt;-</span> <span class="fu">read_and_rbind_loc</span>(taxons)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># number of individuals &amp; localities per species (&gt;50% ancestry)</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> <span class="fu">left_join</span>(genotypes,localities,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"INDIVIDUAL_ID"</span>,<span class="st">"TAXON"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(genetic_info,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"INDIVIDUAL_ID"</span>,<span class="st">"TAXON"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(INDIVIDUAL_ID,LOCALITY,SPECIES,TAXON) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(TAXON,SPECIES) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="st">"N_IND"</span> <span class="ot">=</span> <span class="fu">n_distinct</span>(INDIVIDUAL_ID),<span class="st">"N_LOC"</span> <span class="ot">=</span> <span class="fu">n_distinct</span>(LOCALITY))</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#number of localities per hybrid zone</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>hz_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"salar_trutta"</span>,<span class="st">"aegyptiaca_senegalensis"</span>,<span class="st">"variegata_bombina"</span>,<span class="st">"vulgaris_montandoni"</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>              <span class="st">"anatolicus_ivanbureschi"</span>,<span class="st">"ivanbureschi_cristatus"</span>,<span class="st">"ivanbureschi_macedonicus"</span>,<span class="st">"cristatus_macedonicus"</span>,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>              <span class="st">"colchica_fragilis"</span>,<span class="st">"natrix_helvetica"</span>,<span class="st">"helvetica_astreptophora"</span>,<span class="st">"bocagei_carbonelli"</span>,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>              <span class="st">"guadarramae_liolepis"</span>,<span class="st">"guadarramae_virescens"</span>,<span class="st">"hispanicus_liolepis"</span>,<span class="st">"liolepis_virescens"</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>              <span class="st">"virescens_vaucheri"</span>,<span class="st">"occidentalis_orbicularis"</span>,<span class="st">"orbicularis_trinacris"</span>,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>              <span class="st">"nuchalis_varius"</span>,<span class="st">"nuchalis_ruber"</span>,<span class="st">"varius_ruber"</span>,<span class="st">"rutilus_glareolus"</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> <span class="fu">left_join</span>(genotypes,localities,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"INDIVIDUAL_ID"</span>,<span class="st">"TAXON"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(genetic_info,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"INDIVIDUAL_ID"</span>,<span class="st">"TAXON"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(INDIVIDUAL_ID,LOCALITY,SPECIES,TAXON) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>()</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>out_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> hz_names){</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  sps <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(i,<span class="st">"_"</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  out_list[[<span class="fu">length</span>(out_list)<span class="sc">+</span><span class="dv">1</span>]] <span class="ot">&lt;-</span> temp <span class="sc">%&gt;%</span> <span class="fu">filter</span>(SPECIES <span class="sc">%in%</span> sps) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="st">"N_LOC_TOTAL"</span> <span class="ot">=</span> <span class="fu">n_distinct</span>(LOCALITY)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(TAXON, SPECIES,N_LOC_TOTAL) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="st">"N_LOC_SP"</span> <span class="ot">=</span> <span class="fu">n_distinct</span>(LOCALITY)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="st">"HYBRID_ZONE"</span> <span class="ot">=</span> i)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>hz_loc_species <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">do.call</span>(rbind,out_list))</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="co">#write.csv(hz_loc_species,"temp_tables/n_localities_per_hz.csv",row.names = F,fileEncoding = "UTF-8")</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="co"># number of genotyped individuals for a given genome-wide marker</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> genetic_info <span class="sc">%&gt;%</span> <span class="fu">filter</span>(INDIVIDUAL_ID <span class="sc">%in%</span> genotypes<span class="sc">$</span>INDIVIDUAL_ID) <span class="sc">%&gt;%</span> <span class="fu">count</span>(TAXON,MARKER)</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="co"># % of admixed individuals</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> genetic_info <span class="sc">%&gt;%</span> <span class="fu">filter</span>(INDIVIDUAL_ID <span class="sc">%in%</span> genotypes<span class="sc">$</span>INDIVIDUAL_ID) <span class="sc">%&gt;%</span> <span class="fu">count</span>(TAXON,CLEAR) <span class="sc">%&gt;%</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TAXON) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="st">"SUM_N"</span> <span class="ot">=</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(CLEAR <span class="sc">==</span> F) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="st">"%"</span> <span class="ot">=</span> n<span class="sc">/</span>SUM_N<span class="sc">*</span><span class="dv">100</span>)</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="co">#number of alleles per species</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>taxons <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Salmo"</span>,<span class="st">"Solea"</span>,<span class="st">"Bom."</span>,<span class="st">"Lissotriton"</span>,<span class="st">"Triturus"</span>,<span class="st">"Anguis"</span>,<span class="st">"Emys"</span>,<span class="st">"Natrix"</span>, <span class="st">"Podarcis"</span>,<span class="st">"Sph."</span>,<span class="st">"Cle."</span>) <span class="co">#abbreviations for display</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> genotypes <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(genetic_info,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"INDIVIDUAL_ID"</span>,<span class="st">"TAXON"</span>)) <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(SPECIES <span class="sc">!=</span> <span class="st">"mixed"</span> <span class="sc">&amp;</span> SPECIES <span class="sc">!=</span> <span class="st">"hybrid"</span> <span class="sc">&amp;</span> SPECIES <span class="sc">!=</span> <span class="st">"thyroideus"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CLEAR <span class="sc">==</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TAXON,SPECIES,INDIVIDUAL_ID,CLASS) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="st">"N_ALL"</span> <span class="ot">=</span> <span class="fu">n_distinct</span>(ALLELE)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"TAXON"</span> <span class="ot">=</span> <span class="fu">case_when</span>(TAXON <span class="sc">==</span> <span class="st">"Bombina"</span> <span class="sc">~</span> <span class="st">"Bom."</span>,TAXON <span class="sc">==</span> <span class="st">"Sphyrapicus"</span> <span class="sc">~</span> <span class="st">"Sph."</span>,</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>                             TAXON <span class="sc">==</span> <span class="st">"Clethrionomys"</span> <span class="sc">~</span><span class="st">"Cle."</span>,T <span class="sc">~</span> TAXON)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"CLASS"</span> <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">"MHC"</span>,CLASS),<span class="st">"TAXON"</span> <span class="ot">=</span> <span class="fu">factor</span>(TAXON,<span class="at">levels =</span> taxons))</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="co">#n_alleles species - summary</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> genotypes <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(genetic_info,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"INDIVIDUAL_ID"</span>,<span class="st">"TAXON"</span>)) <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(SPECIES <span class="sc">!=</span> <span class="st">"mixed"</span> <span class="sc">&amp;</span> SPECIES <span class="sc">!=</span> <span class="st">"hybrid"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CLEAR <span class="sc">==</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TAXON,SPECIES,CLASS) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="st">"N_ALL"</span> <span class="ot">=</span> <span class="fu">n_distinct</span>(ALLELE)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(TAXON,SPECIES,CLASS)</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="co">#n_alleles taxa - summary</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> genotypes <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(genetic_info,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"INDIVIDUAL_ID"</span>,<span class="st">"TAXON"</span>)) <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(SPECIES <span class="sc">!=</span> <span class="st">"mixed"</span> <span class="sc">&amp;</span> SPECIES <span class="sc">!=</span> <span class="st">"hybrid"</span> <span class="sc">&amp;</span> SPECIES <span class="sc">!=</span> <span class="st">"thyroideus"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CLEAR <span class="sc">==</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TAXON,CLASS) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="st">"N_ALL"</span> <span class="ot">=</span> <span class="fu">n_distinct</span>(ALLELE)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(TAXON,CLASS)</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="co">#n_alleles per ind and species - summary</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> genotypes <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(genetic_info,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"INDIVIDUAL_ID"</span>,<span class="st">"TAXON"</span>)) <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(SPECIES <span class="sc">!=</span> <span class="st">"mixed"</span> <span class="sc">&amp;</span> SPECIES <span class="sc">!=</span> <span class="st">"hybrid"</span> <span class="sc">&amp;</span> SPECIES <span class="sc">!=</span> <span class="st">"thyroideus"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CLEAR <span class="sc">==</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TAXON,CLASS,SPECIES,INDIVIDUAL_ID) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="st">"N_ALL"</span> <span class="ot">=</span> <span class="fu">n_distinct</span>(ALLELE)) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TAXON,CLASS,SPECIES) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="st">"MEAN_ALL"</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(N_ALL),<span class="dv">2</span>)) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(TAXON,CLASS)</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="co">#n_alleles per ind and taxa - summary</span></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> genotypes <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(genetic_info,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"INDIVIDUAL_ID"</span>,<span class="st">"TAXON"</span>)) <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(SPECIES <span class="sc">!=</span> <span class="st">"mixed"</span> <span class="sc">&amp;</span> SPECIES <span class="sc">!=</span> <span class="st">"hybrid"</span> <span class="sc">&amp;</span> SPECIES <span class="sc">!=</span> <span class="st">"thyroideus"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CLEAR <span class="sc">==</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TAXON,CLASS,SPECIES,INDIVIDUAL_ID) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="st">"N_ALL"</span> <span class="ot">=</span> <span class="fu">n_distinct</span>(ALLELE)) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TAXON,CLASS) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="st">"MEAN_ALL"</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(N_ALL),<span class="dv">2</span>)) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(TAXON,CLASS)</span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="co">#allelic richness per species</span></span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> genotypes <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(genetic_info,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"INDIVIDUAL_ID"</span>,<span class="st">"TAXON"</span>)) <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(SPECIES <span class="sc">!=</span> <span class="st">"mixed"</span> <span class="sc">&amp;</span> SPECIES <span class="sc">!=</span> <span class="st">"hybrid"</span> <span class="sc">&amp;</span> SPECIES <span class="sc">!=</span> <span class="st">"thyroideus"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CLEAR <span class="sc">==</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest_by</span>(TAXON,SPECIES,CLASS) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(TAXON,SPECIES,CLASS) <span class="sc">%&gt;%</span></span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"ALL_RICHNESS"</span> <span class="ot">=</span> <span class="fu">unlist</span>(purrr<span class="sc">::</span><span class="fu">map</span>(data,allelic_richness))) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>data)</span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="co">#write.csv(temp,"temp_tables/AllelicRichness_perSpecies.csv",row.names = F,fileEncoding = "UTF-8")</span></span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a><span class="co">#allelic richness per taxon</span></span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> genotypes <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(genetic_info,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"INDIVIDUAL_ID"</span>,<span class="st">"TAXON"</span>)) <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(SPECIES <span class="sc">!=</span> <span class="st">"mixed"</span> <span class="sc">&amp;</span> SPECIES <span class="sc">!=</span> <span class="st">"hybrid"</span> <span class="sc">&amp;</span> SPECIES <span class="sc">!=</span> <span class="st">"thyroideus"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CLEAR <span class="sc">==</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest_by</span>(TAXON,CLASS) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(TAXON,CLASS) <span class="sc">%&gt;%</span></span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"ALL_RICHNESS"</span> <span class="ot">=</span> <span class="fu">unlist</span>(purrr<span class="sc">::</span><span class="fu">map</span>(data,allelic_richness))) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>data)</span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a><span class="co">#write.csv(temp,"temp_tables/AllelicRichness_perTaxon.csv",row.names = F,fileEncoding = "UTF-8")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+</section>
+<section id="randomization-test---model" class="level1">
+<h1>RANDOMIZATION TEST - MODEL</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>taxons <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Solea"</span>,<span class="st">"Bombina"</span>,<span class="st">"Lissotriton"</span>,<span class="st">"Triturus"</span>,<span class="st">"Anguis"</span>,<span class="st">"Emys"</span>,<span class="st">"Natrix"</span>, <span class="st">"Podarcis"</span>,<span class="st">"Sphyrapicus"</span>,<span class="st">"Clethrionomys"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>read_and_rbind_perm <span class="ot">&lt;-</span> <span class="cf">function</span>(taxons){ <span class="co">#combine permutation results into a single table</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  taxs <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"./permutations/"</span>,taxons,<span class="st">"_permutation_output_manual.csv"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  taxs[<span class="fu">grepl</span>(<span class="st">"Lisso"</span>,taxs)] <span class="ot">&lt;-</span> <span class="st">"./permutations/Lissotriton_permutation_output_manual_all.csv"</span> <span class="co">#lissotriton averaged over transects</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  dts <span class="ot">&lt;-</span> <span class="fu">lapply</span>(taxs,read.csv,<span class="at">fileEncoding =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  dts <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(dts), <span class="cf">function</span>(x){<span class="fu">mutate</span>(dts[[x]],<span class="st">"TAXON"</span> <span class="ot">=</span> taxons[x])})</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>(<span class="fu">do.call</span>(rbind,dts))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>tree_org <span class="ot">&lt;-</span> ape<span class="sc">::</span><span class="fu">read.tree</span>(<span class="st">"permutations/MHC_introgression_timetree.nwk"</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Time of divergence within species pair</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">cophenetic.phylo</span>(tree_org) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"SP1"</span> <span class="ot">=</span> <span class="fu">row.names</span>(.)) <span class="sc">%&gt;%</span> <span class="fu">relocate</span>(SP1,<span class="at">.before =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>SP1,<span class="at">names_to =</span> <span class="st">"SP2"</span>,<span class="at">values_to =</span> <span class="st">"DISTANCE"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"SP1"</span> <span class="ot">=</span> <span class="fu">sapply</span>(<span class="fu">sapply</span>(SP1,strsplit,<span class="at">split =</span> <span class="st">"_"</span>),<span class="st">"["</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"SP2"</span> <span class="ot">=</span> <span class="fu">sapply</span>(<span class="fu">sapply</span>(SP2,strsplit,<span class="at">split =</span> <span class="st">"_"</span>),<span class="st">"["</span>,<span class="dv">2</span>),<span class="st">"DISTANCE"</span> <span class="ot">=</span> DISTANCE<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">#write.csv(x,"permutations/DistanceTips_FromTree.csv",row.names = F,fileEncoding = "UTF-8")</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>dist <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"permutations/DistanceTips_FromTree.csv"</span>,<span class="at">fileEncoding =</span> <span class="st">"UTF-8"</span>) <span class="co">#distance between tips</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co">#prepare data</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">read_and_rbind_perm</span>(taxons) <span class="sc">%&gt;%</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(VARIANT <span class="sc">==</span> <span class="st">"all"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"HYBRID_ZONE"</span> <span class="ot">=</span> <span class="fu">paste</span>(SP1,SP2,<span class="at">sep =</span> <span class="st">"_"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(TAXON,HYBRID_ZONE,CLASS,SES,SP1,SP2) <span class="sc">%&gt;%</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"CLASS"</span> <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">"MHC"</span>,CLASS)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"TAXON"</span> <span class="ot">=</span> <span class="fu">factor</span>(TAXON,<span class="at">levels =</span> taxons)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(dist,<span class="fu">c</span>(<span class="st">"SP1"</span> <span class="ot">=</span> <span class="st">"SP1"</span>,<span class="st">"SP2"</span> <span class="ot">=</span> <span class="st">"SP2"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"DISTANCE"</span> <span class="ot">=</span> <span class="fu">if_else</span>(<span class="fu">is.na</span>(DISTANCE) <span class="sc">&amp;</span> SP1 <span class="sc">==</span> <span class="st">"o. occidentalis"</span>,<span class="dv">0</span>,DISTANCE)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(CLASS,HYBRID_ZONE) <span class="sc">%&gt;%</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"d"</span> <span class="ot">=</span> <span class="st">"SES"</span>)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="co">#diagnose node leading to a given species pair</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>shared_node <span class="ot">&lt;-</span> <span class="fu">mrca</span>(tree_org) <span class="sc">%&gt;%</span> <span class="co">#common node for species pairs</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"SP1"</span> <span class="ot">=</span> <span class="fu">row.names</span>(.)) <span class="sc">%&gt;%</span> <span class="fu">relocate</span>(SP1,<span class="at">.before =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>SP1,<span class="at">names_to =</span> <span class="st">"SP2"</span>,<span class="at">values_to =</span> <span class="st">"NODE"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"SP1"</span> <span class="ot">=</span> <span class="fu">sapply</span>(<span class="fu">sapply</span>(SP1,strsplit,<span class="at">split =</span> <span class="st">"_"</span>),<span class="st">"["</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"SP2"</span> <span class="ot">=</span> <span class="fu">sapply</span>(<span class="fu">sapply</span>(SP2,strsplit,<span class="at">split =</span> <span class="st">"_"</span>),<span class="st">"["</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"HYBRID_ZONE"</span> <span class="ot">=</span> <span class="fu">paste</span>(SP1,SP2,<span class="at">sep =</span> <span class="st">"_"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>SP1,<span class="sc">-</span>SP2) <span class="sc">%&gt;%</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"NODE"</span> <span class="ot">=</span> <span class="fu">as.character</span>(NODE)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="st">"NODE"</span> <span class="ot">=</span> <span class="st">"25"</span>,<span class="st">"HYBRID_ZONE"</span> <span class="ot">=</span> <span class="st">"o. occidentalis_orbicularis"</span>) <span class="co">#adding Emys</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate distance between nodes</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>dist_nodes <span class="ot">&lt;-</span> <span class="fu">dist.nodes</span>(tree_org) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"NODE1"</span> <span class="ot">=</span> <span class="fu">row.names</span>(.)) <span class="sc">%&gt;%</span> <span class="fu">relocate</span>(NODE1,<span class="at">.before =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>NODE1,<span class="at">names_to =</span> <span class="st">"NODE2"</span>,<span class="at">values_to =</span> <span class="st">"DISTANCE"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(shared_node,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"NODE1"</span> <span class="ot">=</span> <span class="st">"NODE"</span>),<span class="at">multiple =</span> <span class="st">"all"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"HYBRID_ZONE1"</span> <span class="ot">=</span> <span class="st">"HYBRID_ZONE"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(shared_node,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"NODE2"</span> <span class="ot">=</span> <span class="st">"NODE"</span>),<span class="at">multiple =</span> <span class="st">"all"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"HYBRID_ZONE2"</span> <span class="ot">=</span> <span class="st">"HYBRID_ZONE"</span>)</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation matrix</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">"HYBRID_ZONE1"</span> <span class="ot">=</span> <span class="fu">sort</span>(<span class="fu">rep</span>(<span class="fu">unique</span>(dt<span class="sc">$</span>HYBRID_ZONE),<span class="at">times =</span> <span class="fu">length</span>(<span class="fu">unique</span>(dt<span class="sc">$</span>HYBRID_ZONE)))),</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"HYBRID_ZONE2"</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="fu">unique</span>(dt<span class="sc">$</span>HYBRID_ZONE),<span class="at">times =</span> <span class="fu">length</span>(<span class="fu">unique</span>(dt<span class="sc">$</span>HYBRID_ZONE)))) <span class="sc">%&gt;%</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(dist_nodes,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"HYBRID_ZONE1"</span>,<span class="st">"HYBRID_ZONE2"</span>),<span class="at">multiple =</span> <span class="st">"all"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>NODE1,<span class="sc">-</span>NODE2) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"HYBRID_ZONE2"</span>,<span class="at">values_from =</span> <span class="st">"DISTANCE"</span>,<span class="at">names_sort =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>HYBRID_ZONE1)</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(cor_mat) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(cor_mat)</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(cor_mat)</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>max_value <span class="ot">&lt;-</span> <span class="fu">max</span>(cor_mat) <span class="co">#changing matrix of distances into correlation matrix</span></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> (max_value<span class="sc">-</span>cor_mat)<span class="sc">/</span>max_value</span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a><span class="co">#keep the same correlation matrix within each MHC class but assume no correlation between MHC classes</span></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>null_mat <span class="ot">&lt;-</span> cor_mat</span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>null_mat[,] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">rbind</span>(cor_mat,null_mat),<span class="fu">rbind</span>(null_mat,cor_mat))</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a><span class="co">#run models</span></span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>formulas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"d~0+CLASS"</span>,<span class="st">"d~CLASS"</span>,<span class="st">"d~CLASS*DISTANCE"</span>,<span class="st">"d~CLASS+DISTANCE"</span>)</span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>out_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>out_models <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(j <span class="cf">in</span> formulas){</span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>  formula_v <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(j)</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>  <span class="co">#test different lambda values</span></span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>  lambda_range <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.0001</span>)</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>  ll <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(lambda <span class="cf">in</span> lambda_range){</span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(lambda <span class="sc">==</span> <span class="dv">0</span>){</span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>      model_temp <span class="ot">&lt;-</span> <span class="fu">gls</span>(formula_v,dt,<span class="at">method =</span><span class="st">"ML"</span>)</span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>      C_new <span class="ot">&lt;-</span>  Matrix<span class="sc">::</span><span class="fu">nearPD</span>(cor_mat<span class="sc">*</span>lambda)<span class="sc">$</span>mat</span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>      C_new <span class="ot">&lt;-</span> <span class="fu">corSymm</span>(C_new[<span class="fu">lower.tri</span>(C_new)], <span class="at">fixed =</span> T)</span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>      model_temp <span class="ot">&lt;-</span> <span class="fu">gls</span>(formula_v,dt,<span class="at">correlation =</span> C_new,<span class="at">method =</span> <span class="st">"ML"</span>)</span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>    ll[<span class="fu">length</span>(ll)<span class="sc">+</span><span class="dv">1</span>] <span class="ot">&lt;-</span> model_temp<span class="sc">$</span>logLik</span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>  chosen_lambda <span class="ot">&lt;-</span> lambda_range[<span class="fu">which.max</span>(ll)]</span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>  <span class="co">#model with correlation</span></span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(chosen_lambda <span class="sc">!=</span> <span class="dv">0</span>){</span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>    C_new <span class="ot">&lt;-</span>  Matrix<span class="sc">::</span><span class="fu">nearPD</span>(cor_mat<span class="sc">*</span>chosen_lambda)<span class="sc">$</span>mat <span class="co"># modify matrix and make it positive-definite</span></span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>    C_new <span class="ot">&lt;-</span> <span class="fu">corSymm</span>(C_new[<span class="fu">lower.tri</span>(C_new)], <span class="at">fixed =</span> T)</span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>    model1 <span class="ot">&lt;-</span> <span class="fu">gls</span>(formula_v,dt,<span class="at">correlation =</span> C_new,<span class="at">method =</span> <span class="st">"ML"</span>)</span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summary</span>(model1)</span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>    model1 <span class="ot">&lt;-</span> <span class="fu">gls</span>(formula_v,dt,<span class="at">method =</span> <span class="st">"ML"</span>)</span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summary</span>(model1)</span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>  description <span class="ot">&lt;-</span> j</span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>  model1<span class="sc">$</span>description <span class="ot">&lt;-</span> description</span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a>  model1<span class="sc">$</span>lambda <span class="ot">&lt;-</span> chosen_lambda</span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>  out_models[[j]] <span class="ot">&lt;-</span> model1</span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(j <span class="sc">==</span> <span class="st">"d~0+CLASS"</span>){</span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a>    conf <span class="ot">&lt;-</span>  <span class="fu">as.data.frame</span>(nlme<span class="sc">::</span><span class="fu">intervals</span>(model1)<span class="sc">$</span>coef)</span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a>    out_list[[<span class="fu">length</span>(out_list)<span class="sc">+</span><span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">"CLASS"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"MHC I"</span>,<span class="st">"MHC II"</span>),<span class="st">"MEAN"</span> <span class="ot">=</span> model1<span class="sc">$</span>coefficients) <span class="sc">%&gt;%</span></span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a>      <span class="fu">left_join</span>(<span class="fu">data.frame</span>(<span class="st">"CLASS"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"MHC I"</span>,<span class="st">"MHC II"</span>),<span class="st">"YMIN"</span> <span class="ot">=</span> conf<span class="sc">$</span>lower,<span class="st">"YMAX"</span> <span class="ot">=</span> conf<span class="sc">$</span>upper),<span class="at">by =</span> <span class="st">"CLASS"</span>)</span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a>dt_means <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">do.call</span>(rbind,out_list))</span>
+<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a><span class="co">#statistical models - exclusion</span></span>
+<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a>t_tables <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">do.call</span>(rbind,<span class="fu">lapply</span>(<span class="fu">lapply</span>(out_models, summary),<span class="cf">function</span>(x){<span class="fu">as.data.frame</span>(x<span class="sc">$</span>tTable) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="st">"CLASS"</span> <span class="ot">=</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(<span class="fu">rownames</span>(.),<span class="st">"CLASSMHC "</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="st">"FORMULA"</span> <span class="ot">=</span> x<span class="sc">$</span>description)})))</span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(t_tables) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a><span class="co">#plot only for the CLASS</span></span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> CLASS,<span class="at">y =</span> d),<span class="at">data =</span> dt,<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.15</span>),<span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> CLASS,<span class="at">y =</span> MEAN),<span class="at">data =</span> dt_means,<span class="at">col =</span> <span class="st">"red"</span>,<span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">x =</span> CLASS,<span class="at">ymin =</span> YMIN,<span class="at">ymax =</span> YMAX),<span class="at">data =</span> dt_means,<span class="at">color =</span> <span class="st">"red"</span>,<span class="at">width =</span> <span class="fl">0.2</span>,<span class="at">lwd =</span> <span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),<span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>))<span class="sc">+</span></span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"SES"</span>)</span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="geographic-clines" class="level1">
+<h1>GEOGRAPHIC CLINES</h1>
+<p>Prior to this step, I fitted geographic clines for each system independently. In folder “./geographic_clines/independent_code/” you will find R script, exemplary input file and output.</p>
+<section id="gather-parameters" class="level2">
+<h2 class="anchored" data-anchor-id="gather-parameters">Gather parameters</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>taxons <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Bombina"</span>,<span class="st">"Lissotriton"</span>,<span class="st">"Triturus"</span>,<span class="st">"Anguis"</span>,<span class="st">"Emys"</span>,<span class="st">"Sphyrapicus"</span>,<span class="st">"Natrix"</span>,<span class="st">"Solea"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>read_and_rbind_perm <span class="ot">&lt;-</span> <span class="cf">function</span>(taxons){ <span class="co">#combine the parameters of fitted geographical clines</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  taxs <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"./geographic_clines/"</span>,taxons,<span class="st">"_LL_parameters.csv"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  dts <span class="ot">&lt;-</span> <span class="fu">lapply</span>(taxs,read.csv,<span class="at">fileEncoding =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  dts <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(dts), <span class="cf">function</span>(x){<span class="fu">mutate</span>(dts[[x]],<span class="st">"TAXON"</span> <span class="ot">=</span> taxons[x])})</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>(<span class="fu">do.call</span>(rbind,dts))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>read_and_rbind_perm_n <span class="ot">&lt;-</span> <span class="cf">function</span>(taxons){ <span class="co">#combine input tables used to fit geographical clines</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  taxs <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"./geographic_clines/"</span>,taxons,<span class="st">"_hzar_input.csv"</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  dts <span class="ot">&lt;-</span> <span class="fu">lapply</span>(taxs,read.csv,<span class="at">fileEncoding =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  dts <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(dts), <span class="cf">function</span>(x){<span class="fu">mutate</span>(dts[[x]],<span class="st">"TAXON"</span> <span class="ot">=</span> taxons[x])})</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>(<span class="fu">do.call</span>(rbind,dts))</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#get the number of localities</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>n_tab <span class="ot">&lt;-</span> <span class="fu">read_and_rbind_perm_n</span>(taxons) <span class="sc">%&gt;%</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(HYBRID_ZONE,<span class="st">"HI"</span><span class="ot">=</span>nSamples_H_I,<span class="st">"HII"</span><span class="ot">=</span>nSamples_H_II,<span class="st">"QI"</span><span class="ot">=</span>nSamples_Q_I,<span class="st">"Q2"</span><span class="ot">=</span>nSamples_Q_II,<span class="st">"genomic"</span><span class="ot">=</span>nSamples_genomic,TAXON) <span class="sc">%&gt;%</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>,<span class="at">names_to =</span> <span class="st">"MARKER"</span>,<span class="at">values_to =</span> <span class="st">"OBSERVATIONS"</span>) <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(HYBRID_ZONE,TAXON,MARKER) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="st">"N"</span> <span class="ot">=</span> <span class="fu">n</span>())</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>marker <span class="ot">&lt;-</span> <span class="st">"H"</span> <span class="co">#select marker (H - hybrid index, Q - structure)</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">read_and_rbind_perm</span>(taxons) <span class="sc">%&gt;%</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(n_tab,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"HYBRID_ZONE"</span>,<span class="st">"TAXON"</span>,<span class="st">"MARKER"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(PARAMETERS <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"center"</span>,<span class="st">"width"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(marker,MARKER) <span class="sc">|</span> MARKER <span class="sc">==</span> <span class="st">"genomic"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"LEVEL"</span> <span class="ot">=</span> <span class="fu">case_when</span>(LEVEL <span class="sc">==</span> <span class="st">"high"</span> <span class="sc">~</span> <span class="st">"high2"</span>,T <span class="sc">~</span> LEVEL)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"LEVEL"</span> <span class="ot">=</span> <span class="fu">case_when</span>(LEVEL <span class="sc">==</span> <span class="st">"low"</span> <span class="sc">~</span> <span class="st">"high"</span>,LEVEL <span class="sc">==</span> <span class="st">"high2"</span> <span class="sc">~</span> <span class="st">"low"</span>,T <span class="sc">~</span> LEVEL)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"MARKER"</span> <span class="ot">=</span> <span class="fu">case_when</span>(<span class="fu">grepl</span>(<span class="st">"II"</span>,MARKER) <span class="sc">~</span> <span class="st">"MHC II"</span>,<span class="fu">grepl</span>(<span class="st">"I$"</span>,MARKER)  <span class="sc">~</span> <span class="st">"MHC I"</span>,T <span class="sc">~</span> MARKER)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>HYBRID_ZONE <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"astreptophora_helveticaAH"</span>,<span class="st">"helvetica_natrixHN3"</span>))</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="co">#write.csv(dt,"temp_tables/Geographic_clines_original.csv",row.names = F,fileEncoding = "UTF-8")</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="calculate-hedges-g" class="level2">
+<h2 class="anchored" data-anchor-id="calculate-hedges-g">Calculate Hedges G</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"temp_tables/Geographic_clines_original.csv"</span>,<span class="at">fileEncoding =</span> <span class="st">"UTF-8"</span>) <span class="sc">%&gt;%</span> <span class="co">#cline parameters</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> LEVEL,<span class="at">values_from =</span> VALUES) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"SE"</span> <span class="ot">=</span> (high<span class="sc">-</span>low)<span class="sc">/</span><span class="fl">3.92</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"SD"</span> <span class="ot">=</span> SE<span class="sc">*</span><span class="fu">sqrt</span>(N)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"SP1"</span> <span class="ot">=</span> <span class="fu">sapply</span>(<span class="fu">strsplit</span>(HYBRID_ZONE,<span class="st">"_"</span>),<span class="st">"["</span>,<span class="dv">1</span>),<span class="st">"SP2"</span> <span class="ot">=</span> <span class="fu">sapply</span>(<span class="fu">strsplit</span>(HYBRID_ZONE,<span class="st">"_"</span>),<span class="st">"["</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(SP1,SP2),<span class="at">.fns =</span> <span class="cf">function</span>(x){stringr<span class="sc">::</span><span class="fu">str_replace_all</span>(x,<span class="at">pattern =</span> <span class="st">"[:upper:].*$"</span>,<span class="at">replacement =</span> <span class="st">""</span>)}))</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#correct signs of cline centre according to the allelic richness</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>allelic_richness <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"temp_tables/AllelicRichness_perSpecies.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"CLASS"</span> <span class="ot">=</span> <span class="fu">case_when</span>(<span class="fu">grepl</span>(<span class="st">"II"</span>,CLASS) <span class="sc">~</span> <span class="st">"MHC II"</span>,<span class="fu">grepl</span>(<span class="st">"I$"</span>,CLASS)  <span class="sc">~</span> <span class="st">"MHC I"</span>,T <span class="sc">~</span> CLASS)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>TAXON)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">left_join</span>(dt,allelic_richness,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"MARKER"</span> <span class="ot">=</span> <span class="st">"CLASS"</span>,<span class="st">"SP1"</span> <span class="ot">=</span> <span class="st">"SPECIES"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"AR1"</span> <span class="ot">=</span> <span class="st">"ALL_RICHNESS"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(allelic_richness,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"MARKER"</span> <span class="ot">=</span> <span class="st">"CLASS"</span>,<span class="st">"SP2"</span> <span class="ot">=</span> <span class="st">"SPECIES"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"AR2"</span> <span class="ot">=</span> <span class="st">"ALL_RICHNESS"</span>) </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">#Hedges G</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>out_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">unique</span>(dt<span class="sc">$</span>HYBRID_ZONE)){</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  temp1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(dt,HYBRID_ZONE <span class="sc">==</span> i)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(k <span class="cf">in</span> <span class="fu">c</span>(<span class="st">"width"</span>,<span class="st">"center"</span>)){</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    temp <span class="ot">&lt;-</span> <span class="fu">filter</span>(temp1,PARAMETERS <span class="sc">==</span> k)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    gen_value <span class="ot">&lt;-</span> temp<span class="sc">$</span>main[temp<span class="sc">$</span>MARKER <span class="sc">==</span> <span class="st">"genomic"</span>]</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    gen_var <span class="ot">&lt;-</span> temp<span class="sc">$</span>SD[temp<span class="sc">$</span>MARKER <span class="sc">==</span> <span class="st">"genomic"</span>]<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    gen_n <span class="ot">&lt;-</span> temp<span class="sc">$</span>N[temp<span class="sc">$</span>MARKER <span class="sc">==</span> <span class="st">"genomic"</span>]</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(j <span class="cf">in</span> <span class="fu">unique</span>(temp<span class="sc">$</span>MARKER)){</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(j <span class="sc">!=</span> <span class="st">"genomic"</span>){</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>        MHC_value <span class="ot">&lt;-</span> temp<span class="sc">$</span>main[temp<span class="sc">$</span>MARKER <span class="sc">==</span> j]</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>        MHC_var <span class="ot">&lt;-</span> temp<span class="sc">$</span>SD[temp<span class="sc">$</span>MARKER <span class="sc">==</span> j]<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>        MHC_n <span class="ot">&lt;-</span> temp<span class="sc">$</span>N[temp<span class="sc">$</span>MARKER <span class="sc">==</span> j]</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>        J_estimate <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">-</span>(<span class="dv">3</span><span class="sc">/</span>((<span class="dv">4</span><span class="sc">*</span>(MHC_n<span class="sc">+</span>gen_n<span class="dv">-2</span>))<span class="sc">-</span><span class="dv">1</span>))</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(k <span class="sc">==</span> <span class="st">"width"</span>){</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>          d <span class="ot">&lt;-</span> ((MHC_value<span class="sc">-</span>gen_value)<span class="sc">/</span><span class="fu">sqrt</span>((((MHC_n<span class="dv">-1</span>)<span class="sc">*</span>MHC_var)<span class="sc">+</span>((gen_n<span class="dv">-1</span>)<span class="sc">*</span>gen_var))<span class="sc">/</span>(MHC_n<span class="sc">+</span>gen_n<span class="dv">-2</span>)))<span class="sc">*</span>J_estimate</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> <span class="cf">if</span>(k <span class="sc">==</span> <span class="st">"center"</span>){</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>          diff_v <span class="ot">&lt;-</span> MHC_value<span class="sc">-</span>gen_value</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span>(temp<span class="sc">$</span>AR1[temp<span class="sc">$</span>MARKER <span class="sc">==</span> j] <span class="sc">&lt;</span> temp<span class="sc">$</span>AR2[temp<span class="sc">$</span>MARKER <span class="sc">==</span> j]){</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>            diff_v <span class="ot">&lt;-</span> <span class="sc">-</span>diff_v</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>          }</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>          d <span class="ot">&lt;-</span> (diff_v<span class="sc">/</span><span class="fu">sqrt</span>((((MHC_n<span class="dv">-1</span>)<span class="sc">*</span>MHC_var)<span class="sc">+</span>((gen_n<span class="dv">-1</span>)<span class="sc">*</span>gen_var))<span class="sc">/</span>(MHC_n<span class="sc">+</span>gen_n<span class="dv">-2</span>)))<span class="sc">*</span>J_estimate</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>        v <span class="ot">&lt;-</span> ((MHC_n<span class="sc">+</span>gen_n)<span class="sc">/</span>(MHC_n<span class="sc">*</span>gen_n))<span class="sc">+</span>((d<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>(MHC_n<span class="sc">+</span>gen_n)))</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>        out <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">unique</span>(temp<span class="sc">$</span>TAXON),i,j,J_estimate,d,v,k)</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>        out_list[[<span class="fu">length</span>(out_list)<span class="sc">+</span><span class="dv">1</span>]] <span class="ot">&lt;-</span> out</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>out_table <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">do.call</span>(rbind,out_list))</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(out_table) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"TAXON"</span>,<span class="st">"HYBRID_ZONE"</span>,<span class="st">"MARKER"</span>,<span class="st">"J"</span>,<span class="st">"d"</span>,<span class="st">"v"</span>,<span class="st">"PARAMETERS"</span>)</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>out_table <span class="ot">&lt;-</span> <span class="fu">mutate</span>(out_table,<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">c</span>(<span class="st">"J"</span>,<span class="st">"d"</span>,<span class="st">"v"</span>),<span class="at">.fns =</span> as.numeric))</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a><span class="co">#write.csv(out_table,"temp_tables/Geographic_clines_Hedges_g.csv",fileEncoding = "UTF-8",row.names = F)</span></span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a><span class="co">#plot</span></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"temp_tables/Geographic_clines_Hedges_g.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"PARAMETERS"</span> <span class="ot">=</span> <span class="fu">if_else</span>(PARAMETERS <span class="sc">==</span> <span class="st">"center"</span>,<span class="st">"centre"</span>,PARAMETERS)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"HYBRID_ZONE"</span> <span class="ot">=</span> <span class="fu">case_when</span>(HYBRID_ZONE <span class="sc">==</span> <span class="st">"bombina_variegataK"</span> <span class="sc">~</span> <span class="st">"Bombina bombina - B. variegata (K)"</span>,</span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>                                   HYBRID_ZONE <span class="sc">==</span> <span class="st">"bombina_variegataJ"</span> <span class="sc">~</span> <span class="st">"Bombina bombina - B. variegata (J)"</span>,</span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>                                   HYBRID_ZONE <span class="sc">==</span> <span class="st">"montandoni_vulgarisS"</span> <span class="sc">~</span> <span class="st">"Lissotriton montandoni - L. vulgaris (S)"</span>,</span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>                                   HYBRID_ZONE <span class="sc">==</span> <span class="st">"montandoni_vulgarisT"</span> <span class="sc">~</span> <span class="st">"Lissotriton montandoni - L. vulgaris (T)"</span>,</span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>                                   HYBRID_ZONE <span class="sc">==</span> <span class="st">"montandoni_vulgarisR2"</span> <span class="sc">~</span> <span class="st">"Lissotriton montandoni - L. vulgaris (R2)"</span>,</span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>                                   HYBRID_ZONE <span class="sc">==</span> <span class="st">"montandoni_vulgarisR"</span> <span class="sc">~</span> <span class="st">"Lissotriton montandoni - L. vulgaris (R)"</span>,</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>                                   HYBRID_ZONE <span class="sc">==</span> <span class="st">"montandoni_vulgarisL"</span> <span class="sc">~</span> <span class="st">"Lissotriton montandoni - L. vulgaris (L)"</span>,</span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>                                   HYBRID_ZONE <span class="sc">==</span> <span class="st">"ivanbureschi_macedonicus"</span> <span class="sc">~</span> <span class="st">"Triturus ivanbureschi - T. macedonicus"</span>,</span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>                                   HYBRID_ZONE <span class="sc">==</span> <span class="st">"cristatus_macedonicus"</span> <span class="sc">~</span> <span class="st">"Triturus cristatus - T. macedonicus"</span>,</span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>                                   HYBRID_ZONE <span class="sc">==</span> <span class="st">"cristatus_ivanbureschi"</span> <span class="sc">~</span> <span class="st">"Triturus cristatus - T. ivanbureschi"</span>,</span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>                                   HYBRID_ZONE <span class="sc">==</span> <span class="st">"anatolicus_ivanbureschi"</span> <span class="sc">~</span> <span class="st">"Triturus anatolicus - T. ivanbureschi"</span>,</span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>                                   HYBRID_ZONE <span class="sc">==</span> <span class="st">"colchica_fragilisA"</span> <span class="sc">~</span> <span class="st">"Anguis colchica - A. fragilis"</span>,</span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>                                   HYBRID_ZONE <span class="sc">==</span> <span class="st">"occidentalis_orbicularisA"</span> <span class="sc">~</span> <span class="st">"Emys o. occidentalis - E. orbicularis"</span>,</span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a>                                   HYBRID_ZONE <span class="sc">==</span> <span class="st">"nuchalis_ruberNR"</span> <span class="sc">~</span> <span class="st">"Sphyrapicus nuchalis - S. ruber"</span>,</span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>                                   <span class="co">#HYBRID_ZONE == "helvetica_natrixHN3" ~ "Natrix helvetica - N. natrix (HN3)",</span></span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>                                   HYBRID_ZONE <span class="sc">==</span> <span class="st">"helvetica_natrixHN2"</span> <span class="sc">~</span> <span class="st">"Natrix helvetica - N. natrix (HN2)"</span>,</span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>                                   HYBRID_ZONE <span class="sc">==</span> <span class="st">"helvetica_natrixHN4"</span> <span class="sc">~</span> <span class="st">"Natrix helvetica - N. natrix (HN1)"</span>,</span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>                                   <span class="co">#HYBRID_ZONE == "astreptophora_helveticaAH" ~ "Natrix astreptophora - N. helvetica",</span></span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>                                   HYBRID_ZONE <span class="sc">==</span> <span class="st">"aegyptiaca_senegalensisA"</span> <span class="sc">~</span> <span class="st">"Solea aegyptiaca - S. senegalensis"</span>))</span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>dt<span class="sc">$</span>HYBRID_ZONE <span class="ot">&lt;-</span> <span class="fu">factor</span>(dt<span class="sc">$</span>HYBRID_ZONE,<span class="at">levels =</span> <span class="fu">rev</span>(<span class="fu">c</span>(<span class="st">"Solea aegyptiaca - S. senegalensis"</span>,</span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>                                                   <span class="st">"Bombina bombina - B. variegata (J)"</span>,<span class="st">"Bombina bombina - B. variegata (K)"</span>,</span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>                                                   <span class="st">"Lissotriton montandoni - L. vulgaris (L)"</span>,<span class="st">"Lissotriton montandoni - L. vulgaris (R)"</span>,</span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>                                                   <span class="st">"Lissotriton montandoni - L. vulgaris (R2)"</span>,</span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>                                                   <span class="st">"Lissotriton montandoni - L. vulgaris (S)"</span>,<span class="st">"Lissotriton montandoni - L. vulgaris (T)"</span>,</span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a>                                                   <span class="st">"Triturus anatolicus - T. ivanbureschi"</span>,<span class="st">"Triturus cristatus - T. ivanbureschi"</span>,</span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>                                                   <span class="st">"Triturus cristatus - T. macedonicus"</span>,<span class="st">"Triturus ivanbureschi - T. macedonicus"</span>,</span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>                                                   <span class="st">"Anguis colchica - A. fragilis"</span>,<span class="st">"Emys o. occidentalis - E. orbicularis"</span>,</span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>                                                   <span class="co">#"Natrix astreptophora - N. helvetica",</span></span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>                                                   <span class="st">"Natrix helvetica - N. natrix (HN1)"</span>,</span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>                                                   <span class="st">"Natrix helvetica - N. natrix (HN2)"</span>,</span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>                                                   <span class="co">#"Natrix helvetica - N. natrix (HN3)",</span></span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>                                                   <span class="st">"Sphyrapicus nuchalis - S. ruber"</span>)))</span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>dt<span class="sc">$</span>PARAMETERS <span class="ot">&lt;-</span> <span class="fu">factor</span>(dt<span class="sc">$</span>PARAMETERS,<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"width"</span>,<span class="st">"centre"</span>))</span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(dt) <span class="sc">+</span> </span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> d<span class="sc">-</span>(<span class="fl">1.96</span><span class="sc">*</span><span class="fu">sqrt</span>(v)),<span class="at">xmax =</span> d<span class="sc">+</span>(<span class="fl">1.96</span><span class="sc">*</span><span class="fu">sqrt</span>(v)),<span class="at">y =</span> HYBRID_ZONE,<span class="at">color =</span> MARKER),</span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>                 <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.4</span>),<span class="at">height =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> d,<span class="at">y =</span> HYBRID_ZONE,<span class="at">color =</span> MARKER),<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.4</span>))<span class="sc">+</span></span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">cols =</span>  <span class="fu">vars</span>(PARAMETERS))<span class="sc">+</span></span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Effect size (Hedges g)"</span>)<span class="sc">+</span></span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),<span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),<span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>),<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),<span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>),<span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>),<span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>))<span class="sc">+</span></span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"MHC I"</span> <span class="ot">=</span> <span class="st">"black"</span>,<span class="st">"MHC II"</span> <span class="ot">=</span> <span class="st">"green3"</span>))<span class="sc">+</span></span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_discrete</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="fl">0.05</span>,<span class="fl">0.15</span>)))<span class="sc">+</span></span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="dv">0</span>),<span class="at">linetype =</span> <span class="st">"dotted"</span>)</span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="statistical-model" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-model">Statistical model</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>taxons <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Solea"</span>,<span class="st">"Bombina"</span>,<span class="st">"Lissotriton"</span>,<span class="st">"Triturus"</span>,<span class="st">"Anguis"</span>,<span class="st">"Emys"</span>,<span class="st">"Natrix"</span>,<span class="st">"Sphyrapicus"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>tree_org <span class="ot">&lt;-</span> ape<span class="sc">::</span><span class="fu">read.tree</span>(<span class="st">"permutations/MHC_introgression_timetree.nwk"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Time of divergence within species pair</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>dist <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"permutations/DistanceTips_FromTree.csv"</span>,<span class="at">fileEncoding =</span> <span class="st">"UTF-8"</span>) <span class="co">#distance between tips</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#prepare data</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"temp_tables/Geographic_clines_Hedges_g.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"HYBRID_ZONE"</span> <span class="ot">=</span> stringr<span class="sc">::</span><span class="fu">str_replace_all</span>(HYBRID_ZONE,<span class="at">pattern =</span> <span class="st">"[:upper:].*$"</span>,<span class="at">replacement =</span> <span class="st">""</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TAXON,HYBRID_ZONE,MARKER,PARAMETERS) <span class="sc">%&gt;%</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="st">"d"</span> <span class="ot">=</span> <span class="fu">mean</span>(d),<span class="st">"v"</span> <span class="ot">=</span> <span class="fu">mean</span>(v)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"SP1"</span> <span class="ot">=</span> <span class="fu">sapply</span>(<span class="fu">strsplit</span>(HYBRID_ZONE,<span class="st">"_"</span>),<span class="st">"["</span>,<span class="dv">1</span>),<span class="st">"SP2"</span> <span class="ot">=</span> <span class="fu">sapply</span>(<span class="fu">strsplit</span>(HYBRID_ZONE,<span class="st">"_"</span>),<span class="st">"["</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(TAXON,HYBRID_ZONE,<span class="st">"CLASS"</span> <span class="ot">=</span> MARKER,PARAMETERS,d,v,SP1,SP2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"TAXON"</span> <span class="ot">=</span> <span class="fu">factor</span>(TAXON,<span class="at">levels =</span> taxons)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(dist,<span class="fu">c</span>(<span class="st">"SP1"</span> <span class="ot">=</span> <span class="st">"SP1"</span>,<span class="st">"SP2"</span> <span class="ot">=</span> <span class="st">"SP2"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"DISTANCE"</span> <span class="ot">=</span> <span class="fu">if_else</span>(<span class="fu">is.na</span>(DISTANCE) <span class="sc">&amp;</span> SP1 <span class="sc">==</span> <span class="st">"occidentalis"</span>,<span class="dv">0</span>,DISTANCE)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(CLASS,HYBRID_ZONE) <span class="sc">%&gt;%</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"CLASS"</span> <span class="ot">=</span> stringr<span class="sc">::</span><span class="fu">str_replace_all</span>(CLASS,<span class="st">"-"</span>,<span class="st">" "</span>))</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co">#diagnose node leading to a given species pair</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>shared_node <span class="ot">&lt;-</span> <span class="fu">mrca</span>(tree_org) <span class="sc">%&gt;%</span> <span class="co">#common node for species pairs</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"SP1"</span> <span class="ot">=</span> <span class="fu">row.names</span>(.)) <span class="sc">%&gt;%</span> <span class="fu">relocate</span>(SP1,<span class="at">.before =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>SP1,<span class="at">names_to =</span> <span class="st">"SP2"</span>,<span class="at">values_to =</span> <span class="st">"NODE"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"SP1"</span> <span class="ot">=</span> <span class="fu">sapply</span>(<span class="fu">sapply</span>(SP1,strsplit,<span class="at">split =</span> <span class="st">"_"</span>),<span class="st">"["</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"SP2"</span> <span class="ot">=</span> <span class="fu">sapply</span>(<span class="fu">sapply</span>(SP2,strsplit,<span class="at">split =</span> <span class="st">"_"</span>),<span class="st">"["</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"HYBRID_ZONE"</span> <span class="ot">=</span> <span class="fu">paste</span>(SP1,SP2,<span class="at">sep =</span> <span class="st">"_"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>SP1,<span class="sc">-</span>SP2) <span class="sc">%&gt;%</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"NODE"</span> <span class="ot">=</span> <span class="fu">as.character</span>(NODE)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="st">"NODE"</span> <span class="ot">=</span> <span class="st">"25"</span>,<span class="st">"HYBRID_ZONE"</span> <span class="ot">=</span> <span class="st">"occidentalis_orbicularis"</span>) <span class="co"># adding Emys</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate distance between nodes</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>dist_nodes <span class="ot">&lt;-</span> <span class="fu">dist.nodes</span>(tree_org) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"NODE1"</span> <span class="ot">=</span> <span class="fu">row.names</span>(.)) <span class="sc">%&gt;%</span> <span class="fu">relocate</span>(NODE1,<span class="at">.before =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>NODE1,<span class="at">names_to =</span> <span class="st">"NODE2"</span>,<span class="at">values_to =</span> <span class="st">"DISTANCE"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(shared_node,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"NODE1"</span> <span class="ot">=</span> <span class="st">"NODE"</span>),<span class="at">multiple =</span> <span class="st">"all"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"HYBRID_ZONE1"</span> <span class="ot">=</span> <span class="st">"HYBRID_ZONE"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(shared_node,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"NODE2"</span> <span class="ot">=</span> <span class="st">"NODE"</span>),<span class="at">multiple =</span> <span class="st">"all"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"HYBRID_ZONE2"</span> <span class="ot">=</span> <span class="st">"HYBRID_ZONE"</span>)</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation matrix</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">"HYBRID_ZONE1"</span> <span class="ot">=</span> <span class="fu">sort</span>(<span class="fu">rep</span>(<span class="fu">unique</span>(dt1<span class="sc">$</span>HYBRID_ZONE),<span class="at">times =</span> <span class="fu">length</span>(<span class="fu">unique</span>(dt1<span class="sc">$</span>HYBRID_ZONE)))),</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"HYBRID_ZONE2"</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="fu">unique</span>(dt1<span class="sc">$</span>HYBRID_ZONE),<span class="at">times =</span> <span class="fu">length</span>(<span class="fu">unique</span>(dt1<span class="sc">$</span>HYBRID_ZONE)))) <span class="sc">%&gt;%</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(dist_nodes,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"HYBRID_ZONE1"</span>,<span class="st">"HYBRID_ZONE2"</span>),<span class="at">multiple =</span> <span class="st">"all"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>NODE1,<span class="sc">-</span>NODE2) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"HYBRID_ZONE2"</span>,<span class="at">values_from =</span> <span class="st">"DISTANCE"</span>,<span class="at">names_sort =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>HYBRID_ZONE1)</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(cor_mat) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(cor_mat)</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(cor_mat)</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>max_value <span class="ot">&lt;-</span> <span class="fu">max</span>(cor_mat) <span class="co">#changing matrix of distances into correlation matrix</span></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> (max_value<span class="sc">-</span>cor_mat)<span class="sc">/</span>max_value</span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="co">#keep the same correlation matrix within each MHC class but assume no correlation between MHC classes</span></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>null_mat <span class="ot">&lt;-</span> cor_mat</span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>null_mat[,] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">rbind</span>(cor_mat,null_mat),<span class="fu">rbind</span>(null_mat,cor_mat))</span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a><span class="co">#run models</span></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>parameters <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"width"</span>,<span class="st">"center"</span>)</span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>formulas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"d~0+CLASS"</span>,<span class="st">"d~CLASS"</span>,<span class="st">"d~CLASS*DISTANCE"</span>,<span class="st">"d~CLASS+DISTANCE"</span>)</span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>out_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>out_models <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> parameters){</span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>  dt <span class="ot">&lt;-</span> <span class="fu">filter</span>(dt1,PARAMETERS <span class="sc">==</span> i)</span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> formulas){</span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>    formula_v <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(j)</span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>    <span class="co">#test different lambda values</span></span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>    lambda_range <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.0001</span>)</span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>    ll <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(lambda <span class="cf">in</span> lambda_range){</span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(lambda <span class="sc">==</span> <span class="dv">0</span>){</span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>        model_temp <span class="ot">&lt;-</span> <span class="fu">gls</span>(formula_v,dt,<span class="at">method =</span> <span class="st">"ML"</span>)</span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>        C_new <span class="ot">&lt;-</span>  Matrix<span class="sc">::</span><span class="fu">nearPD</span>(cor_mat<span class="sc">*</span>lambda)<span class="sc">$</span>mat</span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>        C_new <span class="ot">&lt;-</span> <span class="fu">corSymm</span>(C_new[<span class="fu">lower.tri</span>(C_new)], <span class="at">fixed =</span> T)</span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a>        model_temp <span class="ot">&lt;-</span> <span class="fu">gls</span>(formula_v,dt,<span class="at">correlation =</span> C_new,<span class="at">weights =</span> <span class="sc">~</span>(<span class="dv">1</span><span class="sc">/</span>v),<span class="at">method =</span> <span class="st">"ML"</span>)</span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>      ll[<span class="fu">length</span>(ll)<span class="sc">+</span><span class="dv">1</span>] <span class="ot">&lt;-</span> model_temp<span class="sc">$</span>logLik</span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a>    chosen_lambda <span class="ot">&lt;-</span> lambda_range[<span class="fu">which.max</span>(ll)]</span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>    <span class="co">#model with correlation</span></span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(chosen_lambda <span class="sc">!=</span> <span class="dv">0</span>){</span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>      C_new <span class="ot">&lt;-</span>  Matrix<span class="sc">::</span><span class="fu">nearPD</span>(cor_mat<span class="sc">*</span>chosen_lambda)<span class="sc">$</span>mat <span class="co"># modify matrix and make it positive-definite</span></span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>      C_new <span class="ot">&lt;-</span> <span class="fu">corSymm</span>(C_new[<span class="fu">lower.tri</span>(C_new)], <span class="at">fixed =</span> T)</span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>      model1 <span class="ot">&lt;-</span> <span class="fu">gls</span>(formula_v,dt,<span class="at">correlation =</span> C_new,<span class="at">weights =</span> <span class="sc">~</span>(<span class="dv">1</span><span class="sc">/</span>v),<span class="at">method =</span> <span class="st">"ML"</span>)</span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>      <span class="fu">summary</span>(model1)</span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>      model1 <span class="ot">&lt;-</span> <span class="fu">gls</span>(formula_v,dt,<span class="at">weights =</span> <span class="sc">~</span>(<span class="dv">1</span><span class="sc">/</span>v),<span class="at">method =</span> <span class="st">"ML"</span>)</span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>      <span class="fu">summary</span>(model1)</span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>    description <span class="ot">&lt;-</span> <span class="fu">list</span>(i,j)</span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a>    model1<span class="sc">$</span>description <span class="ot">&lt;-</span> description</span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>    model1<span class="sc">$</span>lambda <span class="ot">&lt;-</span> chosen_lambda</span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a>    out_models[[<span class="fu">paste</span>(i,j,<span class="at">sep =</span> <span class="st">"&amp;"</span>)]] <span class="ot">&lt;-</span> model1</span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(j <span class="sc">==</span> <span class="st">"d~0+CLASS"</span>){</span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a>    conf <span class="ot">&lt;-</span>  <span class="fu">as.data.frame</span>(nlme<span class="sc">::</span><span class="fu">intervals</span>(model1)<span class="sc">$</span>coef)</span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a>    out_list[[<span class="fu">length</span>(out_list)<span class="sc">+</span><span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">"CLASS"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"MHC I"</span>,<span class="st">"MHC II"</span>),<span class="st">"MEAN"</span> <span class="ot">=</span> model1<span class="sc">$</span>coefficients) <span class="sc">%&gt;%</span></span>
+<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a>      <span class="fu">left_join</span>(<span class="fu">data.frame</span>(<span class="st">"CLASS"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"MHC I"</span>,<span class="st">"MHC II"</span>),<span class="st">"YMIN"</span> <span class="ot">=</span> conf<span class="sc">$</span>lower,<span class="st">"YMAX"</span> <span class="ot">=</span> conf<span class="sc">$</span>upper),<span class="at">by =</span> <span class="st">"CLASS"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">PARAMETERS =</span> i)</span>
+<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a>dt_means <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">do.call</span>(rbind,out_list))</span>
+<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a><span class="co">#plot only for the CLASS</span></span>
+<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> CLASS,<span class="at">y =</span> d),<span class="at">data =</span> dt1,<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.15</span>),<span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> CLASS,<span class="at">y =</span> MEAN),<span class="at">data =</span> dt_means,<span class="at">col =</span> <span class="st">"red"</span>,<span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">x =</span> CLASS,<span class="at">ymin =</span> YMIN,<span class="at">ymax =</span> YMAX),<span class="at">data =</span> dt_means,<span class="at">color =</span> <span class="st">"red"</span>,<span class="at">width =</span> <span class="fl">0.2</span>,<span class="at">lwd =</span> <span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),<span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>))<span class="sc">+</span></span>
+<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Hedges g"</span>)<span class="sc">+</span></span>
+<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(PARAMETERS)) <span class="sc">+</span></span>
+<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.9</span>,<span class="fl">1.4</span>),<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">8</span>,<span class="sc">-</span>.<span class="dv">6</span>,<span class="sc">-</span>.<span class="dv">4</span>,<span class="sc">-</span>.<span class="dv">2</span>,<span class="dv">0</span>,.<span class="dv">2</span>,.<span class="dv">4</span>,.<span class="dv">6</span>,.<span class="dv">8</span>,<span class="dv">1</span>,<span class="fl">1.2</span>),<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a><span class="co">#statistical models - p-values</span></span>
+<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a>t_tables <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">do.call</span>(rbind,<span class="fu">lapply</span>(<span class="fu">lapply</span>(out_models, summary),<span class="cf">function</span>(x){<span class="fu">as.data.frame</span>(x<span class="sc">$</span>tTable) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="st">"CLASS"</span> <span class="ot">=</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(<span class="fu">rownames</span>(.),<span class="st">"CLASSMHC "</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="st">"PARAMETER"</span> <span class="ot">=</span> x<span class="sc">$</span>description[[<span class="dv">1</span>]],<span class="st">"FORMULA"</span> <span class="ot">=</span> x<span class="sc">$</span>description[[<span class="dv">2</span>]])})))</span>
+<span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(t_tables) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+</section>
+<section id="genomic-clines---model" class="level1">
+<h1>GENOMIC CLINES - MODEL</h1>
+<p>All files used at this stage were generated independently for each system. You can find the code in “./genomic_clines/independent_code/Genomic_clines_code_parallel.R” together with exemplary input file and output files.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>taxons <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Solea"</span>,<span class="st">"Bombina"</span>,<span class="st">"Lissotriton"</span>,<span class="st">"Triturus"</span>,<span class="st">"Anguis"</span>,<span class="st">"Natrix"</span>,<span class="st">"Sphyrapicus"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>tree_org <span class="ot">&lt;-</span> ape<span class="sc">::</span><span class="fu">read.tree</span>(<span class="st">"permutations/MHC_introgression_timetree.nwk"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>dist <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"permutations/DistanceTips_FromTree.csv"</span>,<span class="at">fileEncoding =</span> <span class="st">"UTF-8"</span>) <span class="co">#distance between tips</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#prepare data</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>read_and_rbind_perm <span class="ot">&lt;-</span> <span class="cf">function</span>(taxons){</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  taxs <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"./genomic_clines/"</span>,taxons,<span class="st">"_GenomicClines_parameters.csv"</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  dts <span class="ot">&lt;-</span> <span class="fu">lapply</span>(taxs,read.csv,<span class="at">fileEncoding =</span> <span class="st">"UTF-8"</span>) <span class="co">#%&gt;% lapply(.,select,INDIVIDUAL_ID,CLASS,ALLELE,GENOTYPE)</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  dts <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(dts), <span class="cf">function</span>(x){<span class="fu">mutate</span>(dts[[x]],<span class="st">"TAXON"</span> <span class="ot">=</span> taxons[x])})</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>(<span class="fu">do.call</span>(rbind,dts))</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">#correct signs of centre</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>allelic_richness <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"temp_tables/AllelicRichness_perSpecies.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"CLASS"</span> <span class="ot">=</span> <span class="fu">case_when</span>(<span class="fu">grepl</span>(<span class="st">"II"</span>,CLASS) <span class="sc">~</span> <span class="st">"MHC II"</span>,<span class="fu">grepl</span>(<span class="st">"I$"</span>,CLASS)  <span class="sc">~</span> <span class="st">"MHC I"</span>,T <span class="sc">~</span> CLASS)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>TAXON)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">read_and_rbind_perm</span>(taxons) <span class="sc">%&gt;%</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"SE"</span> <span class="ot">=</span> (UPPER_2LL<span class="sc">-</span>LOWER_2LL)<span class="sc">/</span><span class="fl">3.92</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"VAR"</span> <span class="ot">=</span> SE<span class="sc">^</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"HYBRID_ZONE"</span> <span class="ot">=</span> stringr<span class="sc">::</span><span class="fu">str_replace_all</span>(HYBRID_ZONE,<span class="at">pattern =</span> <span class="st">"[:upper:].*$"</span>,<span class="at">replacement =</span> <span class="st">""</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TAXON,HYBRID_ZONE,CLASS,PARAMETERS) <span class="sc">%&gt;%</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="st">"d"</span> <span class="ot">=</span> <span class="fu">mean</span>(VALUE),<span class="st">"v"</span> <span class="ot">=</span> <span class="fu">mean</span>(VAR)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"SP1"</span> <span class="ot">=</span> <span class="fu">sapply</span>(<span class="fu">strsplit</span>(HYBRID_ZONE,<span class="st">"_"</span>),<span class="st">"["</span>,<span class="dv">1</span>),<span class="st">"SP2"</span> <span class="ot">=</span> <span class="fu">sapply</span>(<span class="fu">strsplit</span>(HYBRID_ZONE,<span class="st">"_"</span>),<span class="st">"["</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(TAXON,HYBRID_ZONE,CLASS,PARAMETERS,d,v,SP1,SP2) <span class="sc">%&gt;%</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"TAXON"</span> <span class="ot">=</span> <span class="fu">factor</span>(TAXON,<span class="at">levels =</span> taxons)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(dist,<span class="fu">c</span>(<span class="st">"SP1"</span> <span class="ot">=</span> <span class="st">"SP1"</span>,<span class="st">"SP2"</span> <span class="ot">=</span> <span class="st">"SP2"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(CLASS,HYBRID_ZONE) <span class="sc">%&gt;%</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"CLASS"</span> <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">"MHC"</span>,CLASS)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(allelic_richness, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"CLASS"</span> <span class="ot">=</span> <span class="st">"CLASS"</span>,<span class="st">"SP1"</span> <span class="ot">=</span> <span class="st">"SPECIES"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"AR1"</span> <span class="ot">=</span> <span class="st">"ALL_RICHNESS"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(allelic_richness, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"CLASS"</span> <span class="ot">=</span> <span class="st">"CLASS"</span>,<span class="st">"SP2"</span> <span class="ot">=</span> <span class="st">"SPECIES"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"AR2"</span> <span class="ot">=</span> <span class="st">"ALL_RICHNESS"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"d"</span> <span class="ot">=</span> <span class="fu">case_when</span>(PARAMETERS <span class="sc">==</span> <span class="st">"ALPHA"</span> <span class="sc">&amp;</span> AR1 <span class="sc">&gt;</span> AR2 <span class="sc">~</span> <span class="sc">-</span>d,T <span class="sc">~</span> d))</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="co">#write.csv(dt1,"temp_tables/GenomicClines_tableModels.csv",fileEncoding = "UTF-8",row.names = F)</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(dt1,PARAMETERS <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"BETA"</span>,<span class="st">"ALPHA"</span>))</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>shared_node <span class="ot">&lt;-</span> <span class="fu">mrca</span>(tree_org) <span class="sc">%&gt;%</span> <span class="co">#common node for species pairs</span></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"SP1"</span> <span class="ot">=</span> <span class="fu">row.names</span>(.)) <span class="sc">%&gt;%</span> <span class="fu">relocate</span>(SP1,<span class="at">.before =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>SP1,<span class="at">names_to =</span> <span class="st">"SP2"</span>,<span class="at">values_to =</span> <span class="st">"NODE"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"SP1"</span> <span class="ot">=</span> <span class="fu">sapply</span>(<span class="fu">sapply</span>(SP1,strsplit,<span class="at">split =</span> <span class="st">"_"</span>),<span class="st">"["</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"SP2"</span> <span class="ot">=</span> <span class="fu">sapply</span>(<span class="fu">sapply</span>(SP2,strsplit,<span class="at">split =</span> <span class="st">"_"</span>),<span class="st">"["</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"HYBRID_ZONE"</span> <span class="ot">=</span> <span class="fu">paste</span>(SP1,SP2,<span class="at">sep =</span> <span class="st">"_"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>SP1,<span class="sc">-</span>SP2) <span class="sc">%&gt;%</span></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"NODE"</span> <span class="ot">=</span> <span class="fu">as.character</span>(NODE)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="st">"NODE"</span> <span class="ot">=</span> <span class="st">"25"</span>,<span class="st">"HYBRID_ZONE"</span> <span class="ot">=</span> <span class="st">"occidentalis_orbicularis"</span>) <span class="co">#%&gt;% #adding Emys</span></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate distance between nodes</span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>dist_nodes <span class="ot">&lt;-</span> <span class="fu">dist.nodes</span>(tree_org) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"NODE1"</span> <span class="ot">=</span> <span class="fu">row.names</span>(.)) <span class="sc">%&gt;%</span> <span class="fu">relocate</span>(NODE1,<span class="at">.before =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>NODE1,<span class="at">names_to =</span> <span class="st">"NODE2"</span>,<span class="at">values_to =</span> <span class="st">"DISTANCE"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(shared_node,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"NODE1"</span> <span class="ot">=</span> <span class="st">"NODE"</span>),<span class="at">multiple =</span> <span class="st">"all"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"HYBRID_ZONE1"</span> <span class="ot">=</span> <span class="st">"HYBRID_ZONE"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(shared_node,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"NODE2"</span> <span class="ot">=</span> <span class="st">"NODE"</span>),<span class="at">multiple =</span> <span class="st">"all"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"HYBRID_ZONE2"</span> <span class="ot">=</span> <span class="st">"HYBRID_ZONE"</span>)</span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation matrix</span></span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">"HYBRID_ZONE1"</span> <span class="ot">=</span> <span class="fu">sort</span>(<span class="fu">rep</span>(<span class="fu">unique</span>(dt1<span class="sc">$</span>HYBRID_ZONE),<span class="at">times =</span> <span class="fu">length</span>(<span class="fu">unique</span>(dt1<span class="sc">$</span>HYBRID_ZONE)))),</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"HYBRID_ZONE2"</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="fu">unique</span>(dt1<span class="sc">$</span>HYBRID_ZONE),<span class="at">times =</span> <span class="fu">length</span>(<span class="fu">unique</span>(dt1<span class="sc">$</span>HYBRID_ZONE)))) <span class="sc">%&gt;%</span></span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(dist_nodes,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"HYBRID_ZONE1"</span>,<span class="st">"HYBRID_ZONE2"</span>),<span class="at">multiple =</span> <span class="st">"all"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>NODE1,<span class="sc">-</span>NODE2) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"HYBRID_ZONE2"</span>,<span class="at">values_from =</span> <span class="st">"DISTANCE"</span>,<span class="at">names_sort =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>HYBRID_ZONE1)</span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(cor_mat) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(cor_mat)</span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(cor_mat)</span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>max_value <span class="ot">&lt;-</span> <span class="fu">max</span>(cor_mat) <span class="co">#changing matrix of distances into correlation matrix</span></span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> (max_value<span class="sc">-</span>cor_mat)<span class="sc">/</span>max_value</span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a><span class="co">#keep the same correlation matrix within each MHC class but assume no correlation between MHC classes</span></span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>null_mat <span class="ot">&lt;-</span> cor_mat</span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a>null_mat[,] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">rbind</span>(cor_mat,null_mat),<span class="fu">rbind</span>(null_mat,cor_mat))</span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a>parameters <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"BETA"</span>,<span class="st">"ALPHA"</span>) <span class="co">#either alpha or beta parameter</span></span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a>formulas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"d~0+CLASS"</span>,<span class="st">"d~CLASS"</span>,<span class="st">"d~CLASS*DISTANCE"</span>,<span class="st">"d~CLASS+DISTANCE"</span>)</span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>out_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a>out_models <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> parameters){</span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>  dt <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"temp_tables/GenomicClines_tableModels.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(PARAMETERS <span class="sc">==</span> i)</span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> formulas){</span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a>    formula_v <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(j)</span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a>    <span class="co">#test different lambda values</span></span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a>    lambda_range <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.0001</span>)</span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a>    ll <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(lambda <span class="cf">in</span> lambda_range){</span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(lambda <span class="sc">==</span> <span class="dv">0</span>){</span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a>        model_temp <span class="ot">&lt;-</span> <span class="fu">gls</span>(formula_v,dt,<span class="at">method =</span> <span class="st">"ML"</span>)</span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a>        C_new <span class="ot">&lt;-</span>  Matrix<span class="sc">::</span><span class="fu">nearPD</span>(cor_mat<span class="sc">*</span>lambda)<span class="sc">$</span>mat</span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a>        C_new <span class="ot">&lt;-</span> <span class="fu">corSymm</span>(C_new[<span class="fu">lower.tri</span>(C_new)], <span class="at">fixed =</span> T)</span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a>        model_temp <span class="ot">&lt;-</span> <span class="fu">gls</span>(formula_v,dt,<span class="at">correlation =</span> C_new,<span class="at">weights =</span> <span class="sc">~</span>(<span class="dv">1</span><span class="sc">/</span>v),<span class="at">method =</span> <span class="st">"ML"</span>)</span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a>      ll[<span class="fu">length</span>(ll)<span class="sc">+</span><span class="dv">1</span>] <span class="ot">&lt;-</span> model_temp<span class="sc">$</span>logLik</span>
+<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a>    chosen_lambda <span class="ot">&lt;-</span> lambda_range[<span class="fu">which.max</span>(ll)]</span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a>    <span class="co">#model with correlation</span></span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(chosen_lambda <span class="sc">!=</span> <span class="dv">0</span>){</span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a>      C_new <span class="ot">&lt;-</span>  Matrix<span class="sc">::</span><span class="fu">nearPD</span>(cor_mat<span class="sc">*</span>chosen_lambda)<span class="sc">$</span>mat <span class="co"># modify matrix and make it positive-definite</span></span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>      C_new <span class="ot">&lt;-</span> <span class="fu">corSymm</span>(C_new[<span class="fu">lower.tri</span>(C_new)], <span class="at">fixed =</span> T)</span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a>      model1 <span class="ot">&lt;-</span> <span class="fu">gls</span>(formula_v,dt,<span class="at">correlation =</span> C_new,<span class="at">weights =</span> <span class="sc">~</span>(<span class="dv">1</span><span class="sc">/</span>v),<span class="at">method =</span> <span class="st">"ML"</span>)</span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a>      <span class="fu">summary</span>(model1)</span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a>      model1 <span class="ot">&lt;-</span> <span class="fu">gls</span>(formula_v,dt,<span class="at">weights =</span> <span class="sc">~</span>(<span class="dv">1</span><span class="sc">/</span>v),<span class="at">method =</span> <span class="st">"ML"</span>)</span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a>      <span class="fu">summary</span>(model1)</span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a>    description <span class="ot">&lt;-</span> <span class="fu">list</span>(i,j)</span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a>    model1<span class="sc">$</span>description <span class="ot">&lt;-</span> description</span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a>    model1<span class="sc">$</span>lambda <span class="ot">&lt;-</span> chosen_lambda</span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a>    out_models[[<span class="fu">paste</span>(i,j,<span class="at">sep =</span> <span class="st">"&amp;"</span>)]] <span class="ot">&lt;-</span> model1</span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a>    <span class="co">#plotting just CLASS (when formula is d ~ 0+CLASS)</span></span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(j <span class="sc">==</span> <span class="st">"d~0+CLASS"</span>){</span>
+<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a>      conf <span class="ot">&lt;-</span>  <span class="fu">as.data.frame</span>(nlme<span class="sc">::</span><span class="fu">intervals</span>(model1)<span class="sc">$</span>coef)</span>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a>      out_list[[<span class="fu">length</span>(out_list)<span class="sc">+</span><span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">"CLASS"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"MHC I"</span>,<span class="st">"MHC II"</span>),<span class="st">"MEAN"</span> <span class="ot">=</span> model1<span class="sc">$</span>coefficients) <span class="sc">%&gt;%</span></span>
+<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a>        <span class="fu">left_join</span>(<span class="fu">data.frame</span>(<span class="st">"CLASS"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"MHC I"</span>,<span class="st">"MHC II"</span>),<span class="st">"YMIN"</span> <span class="ot">=</span> conf<span class="sc">$</span>lower,<span class="st">"YMAX"</span> <span class="ot">=</span> conf<span class="sc">$</span>upper),<span class="at">by =</span> <span class="st">"CLASS"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mutate</span>(<span class="st">"PARAMETERS"</span> <span class="ot">=</span> i)</span>
+<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a>dt_means <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">do.call</span>(rbind,out_list))</span>
+<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a><span class="co">#statistical models - p-values</span></span>
+<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a>t_tables <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">do.call</span>(rbind,<span class="fu">lapply</span>(<span class="fu">lapply</span>(out_models, summary),<span class="cf">function</span>(x){<span class="fu">as.data.frame</span>(x<span class="sc">$</span>tTable) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="st">"CLASS"</span> <span class="ot">=</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(<span class="fu">rownames</span>(.),<span class="st">"CLASSMHC "</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="st">"PARAMETER"</span> <span class="ot">=</span> x<span class="sc">$</span>description[[<span class="dv">1</span>]],<span class="st">"FORMULA"</span> <span class="ot">=</span> x<span class="sc">$</span>description[[<span class="dv">2</span>]])})))</span>
+<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(t_tables) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a><span class="co">#write.csv(t_tables,"temp_tables/Genomic_clines_pValues.csv",row.names = F,fileEncoding = "UTF-8")</span></span>
+<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a><span class="co">#plot for CLASS only</span></span>
+<span id="cb8-140"><a href="#cb8-140" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb8-141"><a href="#cb8-141" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> CLASS,<span class="at">y =</span> d),<span class="at">data =</span> dt1,<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.15</span>),<span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb8-142"><a href="#cb8-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> CLASS,<span class="at">y =</span> MEAN),<span class="at">data =</span> dt_means,<span class="at">col =</span> <span class="st">"red"</span>,<span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb8-143"><a href="#cb8-143" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">x =</span> CLASS,<span class="at">ymin =</span> YMIN,<span class="at">ymax =</span> YMAX),<span class="at">data =</span> dt_means,<span class="at">color =</span> <span class="st">"red"</span>,<span class="at">width =</span> <span class="fl">0.2</span>,<span class="at">lwd =</span> <span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),<span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>))<span class="sc">+</span></span>
+<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(PARAMETERS))<span class="sc">+</span></span>
+<span id="cb8-148"><a href="#cb8-148" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"VALUE"</span>)<span class="sc">+</span><span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">1.05</span>,<span class="fl">1.05</span>)</span>
+<span id="cb8-149"><a href="#cb8-149" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="r-session-info" class="level1">
+<h1>R session info</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.2.2 Patched (2022-11-10 r83330)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 23.04
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.11.0
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.11.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] nlme_3.1-162    ggtree_3.6.2    ape_5.7-1       patchwork_1.2.0
+ [5] lubridate_1.9.3 forcats_1.0.0   stringr_1.5.1   dplyr_1.1.4    
+ [9] purrr_1.0.2     readr_2.1.5     tidyr_1.3.0     tibble_3.2.1   
+[13] ggplot2_3.4.4   tidyverse_2.0.0
+
+loaded via a namespace (and not attached):
+ [1] treeio_1.22.0      tidyselect_1.2.0   xfun_0.41          lattice_0.20-45   
+ [5] ggfun_0.1.5        colorspace_2.1-0   vctrs_0.6.5        generics_0.1.3    
+ [9] htmltools_0.5.7    yaml_2.3.8         utf8_1.2.4         gridGraphics_0.5-1
+[13] rlang_1.1.3        pillar_1.9.0       glue_1.7.0         withr_2.5.2       
+[17] lifecycle_1.0.4    munsell_0.5.0      gtable_0.3.4       evaluate_0.23     
+[21] memoise_2.0.1      knitr_1.45         tzdb_0.4.0         fastmap_1.1.1     
+[25] parallel_4.2.2     fansi_1.0.6        Rcpp_1.0.12        scales_1.3.0      
+[29] cachem_1.0.8       jsonlite_1.8.8     fs_1.6.3           hms_1.1.3         
+[33] digest_0.6.34      aplot_0.2.3        stringi_1.8.3      grid_4.2.2        
+[37] cli_3.6.2          tools_4.2.2        yulab.utils_0.1.4  magrittr_2.0.3    
+[41] lazyeval_0.2.2     pkgconfig_2.0.3    tidytree_0.4.6     ggplotify_0.1.2   
+[45] timechange_0.2.0   rmarkdown_2.25     rstudioapi_0.15.0  R6_2.5.1          
+[49] compiler_4.2.2    </code></pre>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
