@@ -48,11 +48,11 @@ late() {
 }
 
 mutationEffect(m1,p1) { //NFS for p1 population
-	return 1 + NFS_var - (sim.mutationFrequencies(p1, mut)*NFS_var);
+	return 1 + (NFS_var/2) - (sim.mutationFrequencies(p1, mut)*NFS_var);
 }
 
 mutationEffect(m1,p2) { //NFS for p2 population
-	return 1 + NFS_var - (sim.mutationFrequencies(p2, mut)*NFS_var);
+	return 1 + (NFS_var/2) - (sim.mutationFrequencies(p2, mut)*NFS_var);
 }
 
 1000000 late() {} //this is needed, otherwise simulation makes only 2 ticks
